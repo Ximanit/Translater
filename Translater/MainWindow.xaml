@@ -20,5 +20,18 @@
             <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="20*"/>
         </Grid.ColumnDefinitions>
+
+        <ComboBox x:Name ="Lang_1"  Margin="0,30,10,0" FontSize="20" Grid.Row="0" Grid.Column="1" FontFamily="{DynamicResource MaterialDesignFont}" Grid.ColumnSpan="2" VerticalAlignment="Top" >
+            <TextBlock> Русский</TextBlock>
+            <TextBlock> Английский</TextBlock>
+            <TextBlock></TextBlock>
+        </ComboBox>
+
+        <ComboBox x:Name="Lang_2"  Margin="10,30,10,0" FontSize="20" Grid.Row="0" Grid.Column="4" FontFamily="{DynamicResource MaterialDesignFont}" VerticalAlignment="Top" >
+            <TextBlock> Русский</TextBlock>
+            <TextBlock> Английский</TextBlock>
+            <TextBlock></TextBlock>
+        </ComboBox>
+
     </Grid>
 </Window>
