@@ -20,11 +20,11 @@ namespace Translater
     /// </summary>
     public partial class MainWindow : Window
     {
+        string lang;
         public MainWindow()
         {
             InitializeComponent();
         }
-
         private void Btnswitching_Click(object sender, RoutedEventArgs e)
         {
             string lang;
