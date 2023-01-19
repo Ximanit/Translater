@@ -64,5 +64,50 @@ namespace Translater
                 return body;
             }
         }
+
+        private void BtnTranslate_Click(object sender, RoutedEventArgs e)
+        {
+            string perevod;
+            if ((Lang_1.Text == string.Empty) && (Lang_2.Text == string.Empty))
+                MessageBox.Show("Язык для перевода не выбран", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            else
+            {
+                if (Lang_1.Text == string.Empty)
+                    MessageBox.Show("Язык c которого  переводить не выбран", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                else
+                {
+                    if (Lang_2.Text == string.Empty)
+                        MessageBox.Show("Язык на который переводить не выбран", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    else
+                    {
+                        if (Lang_1.Text == Lang_2.Text)
+                        {
+                            MessageBox.Show("Выбраны одинаковые языки", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                        else
+                        {
+                            if (RusTxt.Text == string.Empty)
+                                MessageBox.Show("Текст для перевода не введен", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                            else
+                            {
+                                string LngPer, LngPer2;
+                                if (Lang_1.Text == "Русский")
+                                {
+                                    LngPer = "ru";
+                                    LngPer2 = "en";
+                                }
+                                else
+                                {
+                                    LngPer = "en";
+                                    LngPer2 = "ru";
+                                }
+                                perevod = RusTxt.Text;
+                                translateAsync(perevod, LngPer, LngPer2);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
