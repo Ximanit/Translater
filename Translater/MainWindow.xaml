@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Translater"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="355" Width="500" ResizeMode ="NoResize">
+        Title="Переводчик" Height="355" Width="500" ResizeMode ="NoResize">
     <Grid Background="white" Height="334" VerticalAlignment="Center" HorizontalAlignment="Right" Width="500" >
         <Grid.RowDefinitions>
             <RowDefinition Height="84*" />

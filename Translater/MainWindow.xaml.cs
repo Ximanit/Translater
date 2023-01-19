@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -31,6 +32,37 @@ namespace Translater
             lang = Lang_1.Text;
             Lang_1.Text = Lang_2.Text;
             Lang_2.Text = lang;
+        }
+        private async Task<string> translateAsync(string perevodText, string LngPer, string LngPer2)
+        {
+            string text = perevodText;
+            var client = new HttpClient();
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Post,
+                RequestUri = new Uri("https://google-translate1.p.rapidapi.com/language/translate/v2"),
+                Headers =
+                {
+                    { "X-RapidAPI-Key", "90157119cemshf5ab74c158bc779p1e15b8jsne911ab0980bd" },
+                    { "X-RapidAPI-Host", "google-translate1.p.rapidapi.com" },
+                },
+                Content = new FormUrlEncodedContent(new Dictionary<string, string>
+                {
+                    { "q", text },
+                    { "target", LngPer2 },
+                    { "source", LngPer },
+                }),
+            };
+            using (var response = await client.SendAsync(request))
+            {
+                response.EnsureSuccessStatusCode();
+                string body = await response.Content.ReadAsStringAsync();
+                string perevod = body.Remove(0, 44);
+                char[] MyChar = { '"', ']', '}' };
+                perevod = perevod.TrimEnd(MyChar);
+                EnglTxt.Text = perevod;
+                return body;
+            }
         }
     }
 }
