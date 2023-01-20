@@ -32,6 +32,8 @@ namespace Translater
             lang = Lang_1.Text;
             Lang_1.Text = Lang_2.Text;
             Lang_2.Text = lang;
+            RusTxt.Text = " ";
+            EnglTxt.Text = "Переведенный текст";
         }
         private async Task<string> translateAsync(string perevodText, string LngPer, string LngPer2)
         {
