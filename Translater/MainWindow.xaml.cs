@@ -23,7 +23,7 @@ namespace Translater
             lang = Lang_1.Text;
             Lang_1.Text = Lang_2.Text;
             Lang_2.Text = lang;
-            RusTxt.Text = " ";
+            RusTxt.Text = EnglTxt.Text;
             EnglTxt.Text = "Переведенный текст";
         }
         private async Task<string> translateAsync(string perevodText, string LngPer, string LngPer2)
@@ -36,7 +36,7 @@ namespace Translater
                 RequestUri = new Uri("https://google-translate1.p.rapidapi.com/language/translate/v2"),
                 Headers =
                 {
-                    { "X-RapidAPI-Key", "90157119cemshf5ab74c158bc779p1e15b8jsne911ab0980bd" },
+                    { "X-RapidAPI-Key", "6749f40f3dmsh789e82639157c05p153452jsnb78f0977791b" },
                     { "X-RapidAPI-Host", "google-translate1.p.rapidapi.com" },
                 },
                 Content = new FormUrlEncodedContent(new Dictionary<string, string>
